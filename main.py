@@ -40,13 +40,19 @@ class MetadataExtractor(AddOn):
             print(exif_data)
             # If EXIF data is retrieved successfully, add it to document.data
             if exif_data:
-                for key, value in exif_data.items():
-                    stripped_key = key.replace(" ", "_")
+                data_to_add = {}
+                for key in ['Author', 'Create Date', 'Creator', 'Modify Date', 'Producer']:
+                    if key in exif_data:
+                        stripped_key = key.replace(" ", "")
+                        data_to_add[stripped_key] = exif_data[key]
+                print(data_to_add)
+            if data_to_add:
+                for key, value in data_to_add.items():
                     if key in document.data:
-                        document.data[stripped_key].append(value)
+                        document.data[key].append(value)
                     else:
-                        document.data[stripped_key] = [value]  # Store values in a list
-                """document.save()"""
+                        document.data[key] = [value]  # Store values in a list
+                document.save()
                 self.set_message(f"Added EXIF data to document {document.id}")
             else:
                 self.set_message(f"Failed to extract EXIF data for document {document.id}")
