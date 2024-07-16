@@ -37,6 +37,7 @@ class MetadataExtractor(AddOn):
             with open("{document.id}.pdf", "wb") as pdf_file:
                 pdf_file.write(document.pdf)
             exif_data = self.get_exif_data("{document.id}.pdf")
+            print(exif_data)
             # If EXIF data is retrieved successfully, add it to document.data
             if exif_data:
                 for key, value in exif_data.items():
@@ -45,7 +46,7 @@ class MetadataExtractor(AddOn):
                         document.data[stripped_key].append(value)
                     else:
                         document.data[stripped_key] = [value]  # Store values in a list
-                document.save()
+                """document.save()"""
                 self.set_message(f"Added EXIF data to document {document.id}")
             else:
                 self.set_message(f"Failed to extract EXIF data for document {document.id}")
