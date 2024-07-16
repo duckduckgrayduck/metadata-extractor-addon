@@ -5,10 +5,7 @@ type: object
 documents:
   - selected
   - query
-properties:
-  name:
-    title: Name
-    type: string
+properties: {}
 categories: 
   - extraction
 # Acceptable categories are premium, ai, export, bulk, file,  monitor, statistical, and extraction. 
