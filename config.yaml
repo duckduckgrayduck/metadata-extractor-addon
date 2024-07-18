@@ -1,5 +1,5 @@
 title: Metadata Extractor
-description: Add-On that extracts metadata using exiftool and saves data as key value pairs on DocumentCloud. 
+description: Extracts PDF file metadata using exiftool and saves data as key value pairs on DocumentCloud. 
 instructions: ''
 type: object
 documents:
