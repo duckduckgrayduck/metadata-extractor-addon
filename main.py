@@ -6,10 +6,10 @@ import os
 import subprocess
 import sys
 import json
-from documentcloud.addon import AddOn
+from documentcloud.addon import SoftTimeOutAddOn
 
 
-class MetadataExtractor(AddOn):
+class MetadataExtractor(SoftTimeOutAddOn):
     """An example Add-On for DocumentCloud."""
     def get_exif_data(self, file_path):
         """ Runs exiftool via a subprocess call and saves it to a dictionary """
